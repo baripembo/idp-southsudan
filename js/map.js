@@ -1,4 +1,4 @@
-let dataUrls = ['geodata_segment1.json'];//,'geodata_segment2.geojson','geodata_segment3.geojson','geodata_segment4.geojson','geodata_segment5.geojson'];
+let dataUrls = ['geodata_segment1.geojson'];//,'geodata_segment2.geojson','geodata_segment3.geojson','geodata_segment4.geojson','geodata_segment5.geojson'];
 let map;
 mapboxgl.accessToken = 'pk.eyJ1IjoiaHN3OTgiLCJhIjoiY2oyOXh2dzlxMDAwYzJ3bzcyMnRseXcxNCJ9.1h5sGCIL0Pig6OmgZdDBMg';
 
@@ -14,7 +14,7 @@ function getData() {
 function loadData(dataPath, done) {
     var xhr = new XMLHttpRequest();
     xhr.onload = function () { return done(this.responseText) }
-    xhr.open('GET', '../data/'+dataPath, true);
+    xhr.open('GET', 'https://baripembo.github.io/idp-southsudan/data/'+dataPath, true);
     xhr.send();
 }
 
@@ -54,7 +54,7 @@ function initMap() {
   //add icon images
   let iconArray = ['icon_circle','icon_foot','icon_boat'];
   iconArray.forEach(function(imageName) {
-    map.loadImage('assets/icons/'+imageName+'.png', function(error, image) {
+    map.loadImage('https://baripembo.github.io/idp-southsudan/assets/icons/'+imageName+'.png', function(error, image) {
       map.addImage(imageName, image);
     });
   });
@@ -69,7 +69,7 @@ function initMap() {
 function locationData() {
   map.addSource('segment1', {
     type: 'geojson',
-    data: '../data/geodata_locations.json'
+    data: 'https://baripembo.github.io/idp-southsudan/data/geodata_locations.geojson'
   });
 
   map.addLayer({
