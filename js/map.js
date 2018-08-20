@@ -1,4 +1,4 @@
-let dataUrls = ['geodata_segment1.geojson'];//,'geodata_segment2.geojson','geodata_segment3.geojson','geodata_segment4.geojson','geodata_segment5.geojson'];
+let dataUrls = ['geodata_segment1.geojson','geodata_segment2.geojson','geodata_segment3.geojson','geodata_segment4.geojson','geodata_segment5.geojson'];
 let map;
 mapboxgl.accessToken = 'pk.eyJ1IjoiaHN3OTgiLCJhIjoiY2oyOXh2dzlxMDAwYzJ3bzcyMnRseXcxNCJ9.1h5sGCIL0Pig6OmgZdDBMg';
 
