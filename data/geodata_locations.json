@@ -1,0 +1,261 @@
+{
+   "type":"FeatureCollection",
+   "features":[
+      {
+         "type":"Feature",
+         "properties":{
+            "name":"Padeah Village",
+            "textAnchor":"left",
+            "textOffset":[2, 0],
+            "iconOffset": [15,0]
+         },
+         "geometry":{
+            "type":"Point",
+            "coordinates":[
+               30.18965721130371,
+               8.402200992953366
+            ]
+         }
+      },
+      {
+         "type":"Feature",
+         "properties":{
+            "name":"Bentiu PoC site",
+            "textAnchor":"left",
+            "textOffset":[2, 0],
+            "iconOffset": [15,0]
+         },
+         "geometry":{
+            "type":"Point",
+            "coordinates":[
+               29.790115356445312,
+               9.330170136613834
+            ]
+         }
+      },
+      {
+         "type":"Feature",
+         "properties":{
+            "name":"Padeah Village",
+            "textAnchor":"left",
+            "textOffset":[2, 0],
+            "iconOffset": [15,0]
+         },
+         "geometry":{
+            "type":"Point",
+            "coordinates":[
+               30.18965721130371,
+               8.402200992953366
+            ]
+         }
+      },
+      {
+         "type":"Feature",
+         "properties":{
+            "name":"Meer Island swamp",
+            "textAnchor":"right",
+            "textOffset":[-2, 0],
+            "iconOffset": [-15,0]
+         },
+         "geometry":{
+            "type":"Point",
+            "coordinates":[
+               30.2583036,
+               8.1814467
+            ]
+         }
+      },
+      {
+         "type":"Feature",
+         "properties":{
+            "name":"Leer town",
+            "textAnchor":"left",
+            "textOffset":[2, 0],
+            "iconOffset": [15,0]
+         },
+         "geometry":{
+            "type":"Point",
+            "coordinates":[
+               30.140304565429688,
+               8.302547012414049
+            ]
+         }
+      },
+      {
+         "type":"Feature",
+         "properties":{
+            "name":"Leer town",
+            "textAnchor":"left",
+            "textOffset":[2, 0],
+            "iconOffset": [15,0]
+         },
+         "geometry":{
+            "type":"Point",
+            "coordinates":[
+               30.140304565429688,
+               8.302547012414049
+            ]
+         }
+      },
+      {
+         "type":"Feature",
+         "properties":{
+            "name":"Adok Port",
+            "textAnchor":"left",
+            "textOffset":[2, 0],
+            "iconOffset": [15,0]
+         },
+         "geometry":{
+            "type":"Point",
+            "coordinates":[
+               30.3180283,
+               8.1853378
+            ]
+         }
+      },
+      {
+         "type":"Feature",
+         "properties":{
+            "name":"Thair Port",
+            "textAnchor":"left",
+            "textOffset":[2, 0],
+            "iconOffset": [15,0]
+         },
+         "geometry":{
+            "type":"Point",
+            "coordinates":[
+               30.52664,
+               7.72391
+            ]
+         }
+      },
+      {
+         "type":"Feature",
+         "properties":{
+            "name":"Shambe",
+            "textAnchor":"right",
+            "textOffset":[-2, 0],
+            "iconOffset": [-15,0]
+         },
+         "geometry":{
+            "type":"Point",
+            "coordinates":[
+               30.773048400878903,
+               7.1042995507290145
+            ]
+         }
+      },
+      {
+         "type":"Feature",
+         "properties":{
+            "name":"Bor town",
+            "textAnchor":"left",
+            "textOffset":[2, 0],
+            "iconOffset": [15,0]
+         },
+         "geometry":{
+            "type":"Point",
+            "coordinates":[
+               31.5582275390625,
+               6.20301869329055
+            ]
+         }
+      },
+      {
+         "type":"Feature",
+         "properties":{
+            "name":"Gemmaiza",
+            "textAnchor":"left",
+            "textOffset":[2, 0],
+            "iconOffset": [15,0]
+         },
+         "geometry":{
+            "type":"Point",
+            "coordinates":[
+               31.79715871810913,
+               5.680387955615968
+            ]
+         }
+      },
+      {
+         "type":"Feature",
+         "properties":{
+            "name":"Terekeka",
+            "textAnchor":"left",
+            "textOffset":[2, 0],
+            "iconOffset": [15,0]
+         },
+         "geometry":{
+            "type":"Point",
+            "coordinates":[
+               31.753063201904297,
+               5.449310311074722
+            ]
+         }
+      },
+      {
+         "type":"Feature",
+         "properties":{
+            "name":"Mongalla",
+            "textAnchor":"left",
+            "textOffset":[2, 0],
+            "iconOffset": [15,0]
+         },
+         "geometry":{
+            "type":"Point",
+            "coordinates":[
+               31.769542694091797,
+               5.198484175705779
+            ]
+         }
+      },
+      {
+         "type":"Feature",
+         "properties":{
+            "name":"Gondokoro",
+            "textAnchor":"left",
+            "textOffset":[2, 0],
+            "iconOffset": [15,0]
+         },
+         "geometry":{
+            "type":"Point",
+            "coordinates":[
+               31.661310195922855,
+               4.907110216939487
+            ]
+         }
+      },
+      {
+         "type":"Feature",
+         "properties":{
+            "name":"Juba Port",
+            "textAnchor":"left",
+            "textOffset":[2, 0],
+            "iconOffset": [15,0]
+         },
+         "geometry":{
+            "type":"Point",
+            "coordinates":[
+               31.6146719455719,
+               4.831766308530728
+            ]
+         }
+      },
+      {
+         "type":"Feature",
+         "properties":{
+            "name":"Juba PoC site",
+            "textAnchor":"right",
+            "textOffset":[-2, 0],
+            "iconOffset": [-15,0]
+         },
+         "geometry":{
+            "type":"Point",
+            "coordinates":[
+               31.543679237365723,
+               4.817012969530732
+            ]
+         }
+      }
+   ]
+}
