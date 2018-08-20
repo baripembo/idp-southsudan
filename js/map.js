@@ -14,7 +14,7 @@ function getData() {
 function loadData(dataPath, done) {
     var xhr = new XMLHttpRequest();
     xhr.onload = function () { return done(this.responseText) }
-    xhr.open('GET', '../data/'+dataPath, true);
+    xhr.open('GET', 'https://baripembo.github.io/data/'+dataPath, true);
     xhr.send();
 }
 
