@@ -69,7 +69,7 @@ function initMap() {
 function locationData() {
   map.addSource('segment1', {
     type: 'geojson',
-    data: '../data/geodata_locations.geojson'
+    data: 'https://baripembo.github.io/data/geodata_locations.geojson'
   });
 
   map.addLayer({
