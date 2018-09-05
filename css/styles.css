@@ -9,6 +9,9 @@ body {
 	margin: 0;
 	padding: 0;
 }
+.row {
+	margin: 0;
+}
 .feature {
 	/*background: transparent url('http://via.placeholder.com/910x515') no-repeat top center;
 	background-size: cover;*/
@@ -68,6 +71,28 @@ body {
 	border: 2px solid #000;
 	margin-left: 34px;
 	margin-top: 34px;
+}
+.main-header.sticky {
+	background-color: #FFF;
+	margin-top: 0;
+	padding-top: 20px;
+	position: fixed;
+	top: 0;
+	z-index: 3;
+}
+.story.sticky {
+	height: 100vh;
+	overflow: auto;
+	position: fixed;
+	top: 80px;
+	width: 49%;
+	z-index: 3;
+}
+.segment {
+	display: none;
+}
+.segment:first-child {
+	display: block;
 }
 h1 {
 	color: #FFF;
