@@ -509,19 +509,7 @@
                [
                   31.61564826965332,
                   4.832022885501344
-               ]
-            ]
-         }
-      },
-      {
-         "type":"Feature",
-         "properties":{
-            "name":"Juba port-Juba PoC site",
-            "transport":"foot"
-         },
-         "geometry":{
-            "type":"LineString",
-            "coordinates":[
+               ],
                [
                   31.61363124847412,
                   4.832364987977763

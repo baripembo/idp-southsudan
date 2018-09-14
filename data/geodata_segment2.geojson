@@ -501,19 +501,7 @@
                [
                   30.237293243408203,
                   8.20265535042667
-               ]
-            ]
-         }
-      },
-      {
-         "type":"Feature",
-         "properties":{
-            "transport":"foot",
-            "name":"Meer Island-Leer"
-         },
-         "geometry":{
-            "type":"LineString",
-            "coordinates":[
+               ],
                [
                   30.25360107421875,
                   8.189402522776083

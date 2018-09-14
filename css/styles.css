@@ -81,7 +81,6 @@ body {
 	z-index: 3;
 }
 .story.sticky {
-	height: 100vh;
 	overflow: auto;
 	position: fixed;
 	top: 80px;
