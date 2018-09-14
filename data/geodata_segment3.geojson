@@ -249,19 +249,7 @@
                [
                   30.31999111175537,
                   8.185537031577296
-               ]
-            ]
-         }
-      },
-      {
-         "type":"Feature",
-         "properties":{
-            "name":"Adok port-Thair port",
-            "transport":"boat"
-         },
-         "geometry":{
-            "type":"LineString",
-            "coordinates":[
+               ],
                [
                   30.321235656738278,
                   8.184984815486192
@@ -1717,19 +1705,7 @@
                [
                   30.52722930908203,
                   7.724259959050107
-               ]
-            ]
-         }
-      },
-      {
-         "type":"Feature",
-         "properties":{
-            "transport":"boat",
-            "name":"Thair port-Shambe"
-         },
-         "geometry":{
-            "type":"LineString",
-            "coordinates":[
+               ],
                [
                   30.527057647705078,
                   7.723579543355448
