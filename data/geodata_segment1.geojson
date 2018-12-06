@@ -5,7 +5,8 @@
          "type":"Feature",
          "properties":{
             "transport":"foot",
-            "name":"Padeah-Bentiu"
+            "name":"padeah",
+            "ticker":"0 steps walked. 0 km. 0 days."
          },
          "geometry":{
             "type":"LineString",

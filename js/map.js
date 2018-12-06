@@ -1,43 +1,96 @@
 $( document ).ready(function() {
-  let dataUrls = ['geodata_segment1.geojson','geodata_segment2.geojson','geodata_segment3.geojson','geodata_segment4.geojson','geodata_segment6.geojson','geodata_segment5.geojson'];
-  let layerArray = new Array(dataUrls.length);
-  let map;
-  const DATA_URL = 'https://baripembo.github.io/idp-southsudan/';
+  $('.slideshow').slick({
+    dots: true
+  });
+
+  const DATA_URL = 'http://0.0.0.0:8000/';//https://baripembo.github.io/idp-southsudan/';
   mapboxgl.accessToken = 'pk.eyJ1IjoiaHN3OTgiLCJhIjoiY2oyOXh2dzlxMDAwYzJ3bzcyMnRseXcxNCJ9.1h5sGCIL0Pig6OmgZdDBMg';
 
+  let isMobile = $(window).width()<600? true : false;
+  let dataUrls = ['geodata_segment1.geojson','geodata_segment2.geojson','geodata_segment3.geojson','geodata_segment4.geojson','geodata_segment5.geojson','geodata_segment6.geojson'];
+  let geoDataArray = new Array(dataUrls.length);
+  let tickerArray = new Array(dataUrls.length);
+  let map;
 
-  $('.main-content').height($('#map').height());
+  let narrative = $('#narrative'),
+    sections = narrative.find('section'),
+    currentSection = '';
+    currentIndex = 0;
 
-  let mapPositions = [0,1050,1550,2110,2550,3150];
-  let mainHeaderPos = $('.main-header').position().top;
-  let footerPos = $('.footer').position().top;
-  $(window).scroll(function (event) {
-      let scrollPos = $(window).scrollTop();
-      //control sticky header
-      if (scrollPos > mainHeaderPos && (scrollPos+$(window).height()+50) < footerPos) {
-        $('.main-header').addClass('sticky');
-        $('.story').addClass('sticky');
-        let stickyPos = $('.story.sticky').css('top').replace(/[^-\d\.]/g, '');
-        $('.story').css('height', $(window).height()-stickyPos);
+  narrative.scroll(function(e) {
+    let narrativeHeight = narrative.outerHeight();
+    let newSection = currentSection;
+
+    //show ticker
+    if (narrative.scrollTop() >= $('.hero').outerHeight()) {
+      $('.ticker').addClass('active');
+    }
+    else {
+      $('.ticker').removeClass('active');
+    }
+    
+    //detect current section in view
+    for (let i=sections.length-1; i>=0; i--) {
+      let rect = sections[i].getBoundingClientRect();
+      if (rect.top >= 0 && rect.top <= narrativeHeight) {
+        newSection = sections[i].id;
+        currentIndex = i;
       }
-      else {
-        $('.main-header').removeClass('sticky');
-        $('.story').removeClass('sticky');
-      }
+    };
 
-      //change text content based on position of scroll
-      for (var i=1; i<=mapPositions.length; i++) {
-        if (scrollPos>mapPositions[i-1] && scrollPos<=mapPositions[i]) {
-          $('.segment').hide();
-          $('.segment:nth-child('+i+')').show();
-
-          //show segment map icons
-          if (map.getLayer(layerArray[i]) && map.getPaintProperty(layerArray[i], 'icon-opacity') < 1) {
-            map.setPaintProperty(layerArray[i], 'icon-opacity', 1);
-          }
-        }
-      }
+    setSection(newSection);
   });
+
+
+  function updateTicker(value) {
+    $('.ticker p').animate({
+      opacity: 0,
+      marginTop: '50px',
+    }, 400, function() {
+      $(this).text(value);
+      $(this).css('marginTop', '-50px').animate({
+        opacity: 1,
+        marginTop: '0'
+      }, 400);
+    });
+  }
+
+
+  function setSection(newSection) {
+    // update map if id changed
+    if (newSection === currentSection) return;
+    
+    //update ticker
+    updateTicker(tickerArray[currentIndex]);
+
+    //show current section icons
+    let layer = newSection+'Layer';
+    if (map.getLayer(layer)) {
+      map.setPaintProperty(layer, 'icon-opacity', 1);
+      if (i===0) {
+        map.setLayoutProperty(layer, 'icon-rotate', ['get', 'bearing']);
+        map.setLayoutProperty(layer, 'icon-rotation-alignment', 'map');
+      }
+    }
+
+    //fit map to bounds of current section
+    if (geoDataArray[currentIndex]!==undefined) {
+      let bbox = turf.extent(geoDataArray[currentIndex]);
+      let bearing = (i===0)? -180 : -21;
+      let options = isMobile? 'padding: {top: 40, bottom: 40, left: 0, right: 0}' : 'offset: [200,0], padding: {top: 110, bottom: 65, left: 0, right: 0}';
+      if (isMobile)
+        map.fitBounds(bbox, {padding: {top: 40, bottom: 40, left: 0, right: 0}, bearing: bearing});
+      else
+        map.fitBounds(bbox, {offset: [200,0], padding: {top: 110, bottom: 65, left: 0, right: 0}, bearing: bearing});
+    }
+    
+    // highlight the current section
+    for (var i = 0; i < sections.length; i++) {
+      sections[i].className = sections[i].id === newSection ? 'active' : '';
+    }
+    currentSection = newSection;
+  }
+
 
   function getData() {
     dataUrls.forEach(function (url, index) {
@@ -47,12 +100,14 @@ $( document ).ready(function() {
     })
   }
 
+
   function loadData(dataPath, done) {
-      var xhr = new XMLHttpRequest();
-      xhr.onload = function () { return done(this.responseText) }
-      xhr.open('GET', DATA_URL+'data/'+dataPath, true);
-      xhr.send();
+    var xhr = new XMLHttpRequest();
+    xhr.onload = function () { return done(this.responseText) }
+    xhr.open('GET', DATA_URL+'data/'+dataPath, true);
+    xhr.send();
   }
+
 
   function convertLineStringtoPoint(array, type) {
     let newArray = [];
@@ -71,15 +126,17 @@ $( document ).ready(function() {
     return newArray;
   }
 
+
   function initMap() {
     map = new mapboxgl.Map({
       container: 'map',
-      style: 'mapbox://styles/hsw98/cjjq2awnt06n12soa9ki5nlsl',
-      center: [31.1169, 6.1008],
-      maxZoom: 24,
+      style: 'mapbox://styles/hsw98/cjjq2awnt06n12soa9ki5nlsl',//'mapbox://styles/mapbox/satellite-v9'
+      center: [29.5, 8.0],
+      maxZoom: 17,
       zoom: 8.2,
-      bearing: -21,
-      interactive: false
+      bearing: -180,
+      //interactive: false,
+      //attributionControl: false
     });
 
     //add map zoom control
@@ -99,10 +156,10 @@ $( document ).ready(function() {
     //get data
     map.on('load', function() {
       locationData();
-      conflictData();
       getData();
     });
   }
+
 
   function locationData() {
     map.addSource('locationSource', {
@@ -126,39 +183,26 @@ $( document ).ready(function() {
         'text-allow-overlap': true
       }
     });
-  }
 
-  function conflictData() {
-    map.addSource('clashSource', {
-      type: 'geojson',
-      data: DATA_URL+'data/conflict_sample.geojson'
-    });
-
-    map.addLayer({
-      'id': 'clashPoints',
-      'type': 'symbol',
-      'source': 'clashSource',
-      'layout': {
-        'icon-image': 'icon_clash',
-        'icon-offset': { 'type': 'identity', 'property': 'iconOffset' },
-        // 'text-field': '{event_type}',
-        // 'text-font': ['PT Sans Bold Italic', 'Arial Unicode MS Bold'],
-        // 'text-size': 11,
-        // 'text-offset': { 'type': 'identity', 'property': 'textOffset' },
-        // 'text-anchor': { 'type': 'identity', 'property': 'textAnchor' },
-        'icon-allow-overlap': true,
-        'text-allow-overlap': true
-      }
+    loadData('geodata_locations.geojson', function (responseText) {
+      //fit to bounds of featured locations
+      let bbox = turf.extent(JSON.parse(responseText));
+      let options = isMobile? 'padding: {top: 40, bottom: 40, left: 0, right: 0}' : 'offset: [200,0], padding: {top: 110, bottom: 65, left: 0, right: 0}';
+      if (isMobile)
+        map.fitBounds(bbox, {padding: {top: 40, bottom: 40, left: 0, right: 0}, bearing: -180});
+      else
+        map.fitBounds(bbox, {offset: [200,0], padding: {top: 110, bottom: 65, left: 0, right: 0}, bearing: -180});
     });
   }
+
 
   function parseData(geoData, index) {
+    geoDataArray[index] = geoData;
     geoData.features.forEach(function(feature) {
+      tickerArray[index] = feature.properties.ticker;
       let points = convertLineStringtoPoint(feature.geometry.coordinates, feature.properties.transport);
       let name = feature.properties.name.replace(/ /g, '').toLowerCase()
       let source = name+'Layer';
-      layerArray[index] = source;
-      let iconOpacity = index===0? 1 : 0;
       map.addSource(source, {
         type: 'geojson',
         data: {
@@ -175,7 +219,7 @@ $( document ).ready(function() {
           'icon-padding': 6
         },
         'paint': {
-          'icon-opacity': iconOpacity,
+          'icon-opacity': 0,
           'icon-opacity-transition': {
             'duration': 1000
           }
@@ -185,5 +229,4 @@ $( document ).ready(function() {
   }
 
   initMap();
-
 });
