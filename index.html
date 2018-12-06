@@ -2,111 +2,144 @@
 <html>
   <head>
     <meta charset='utf-8' />
-    <title>South Sudan</title>
+    <title>Displaced in South Sudan</title>
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
     <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet'>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.47.0/mapbox-gl.css' rel='stylesheet' />
     <link href='css/flexboxgrid.min.css' type='text/css' rel='stylesheet'>
+    <link href='lib/slick/slick.css' rel='stylesheet'/>
+    <link href='lib/slick/slick-theme.css' rel='stylesheet'/>
     <link href='css/styles.css' rel='stylesheet' />
   </head>
 
   <body>
 
-    <div class='row center-md feature'>
-      <div class='col-md-10'>
-        <label>Displaced in South Sudan</label>
-        <h1>A journey of 480,000 steps</h1>
-        <hr />
-        <div class='row'>
-          <div class='col-md-6 small-map'>
-            <img src='assets/smallmap.svg' width='374' />
-          </div>
-          <div class='col-md-6 start-md'>
-            <p>Conflict, hunger and disease, among other factors, forced nearly 700,000 people to flee South Sudan as refugees to neighbouring countries in 2017, the latest refugee data shows. More than 70 percent of those fled in the first half of 2017, which saw multiple military offensives in Upper Nile, Jonglei, and the Greater Equatoria region.</p>
-            <p>Nearly 4 million people – about one in three South Sudanese - have been displaced, including more than 1.9 million internally displaced and over 2.0 million who have fled as refugees to neighbouring Uganda, Kenya, Ethiopia, Sudan and the Democratic Republic of Congo (DRC).</p> 
-            <p>What happens after people abandon their land, homes, jobs, and are forced to flee their country? The route to a safe place is often filled with threats.</p>
+    <div class='ticker'>
+      <p>0 steps walked. 0 km. 0 days.</p>
+    </div>
+
+    <div id='map'></div>
+
+    <div id='narrative'>
+      <div id='sections'>
+        <div class='hero'>
+          <div class='overlay'></div>
+          <div class='container'>
+            <div class='header'>
+              <label>Displaced in South Sudan</label>
+              <h1>A journey of 1,000 kilometers</h1>
+            </div>
+            <div class='inner-container'>
+              <div class='map-graphic'>
+                <img src='assets/smallmap.svg'/>
+              </div>
+              <div class='hero-text'>
+                <p>Conflict, hunger and disease forced nearly 700,000 people to flee South Sudan to become refugees in neighbouring countries in 2017. More than 70 percent of those fled in the first half of 2017, when multiple military offensives occurred in Upper Nile, Unity, Jonglei, and the Greater Equatoria region.</p>
+                <p>Since 2013, over 4.2 million people – about one in three South Sudanese – have been displaced within the country. More than 2.2 million people are now refugees in countries across the region, including Uganda, Kenya, Ethiopia, Sudan and the Democratic Republic of Congo.</p>
+                <p>What happens when people are forced to abandon their land, homes, jobs and schools due to a civil war? Follow one family’s journey of 1,000 kilometers (over 600 miles) as they travel the length of South Sudan in search of safety.</p>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-
-    <div class='row'>
-      <div class='col-md-offset-1 col-md-11'>
-        <h3 class='main-header'><span>0 steps walked. 0 km. 0 days.</span></h3>
-      </div>
-    </div>
-    
-    <div class='row'>
-      <div class='col-md-offset-1 col-md-10'>
-        <div class='main-content'>
-          <div class='story'>
-            <div class='segment segment1'>
-              <h4><div class='icon'></div>Fleeing Padeah Village and return</h4>
-              <p>Padeah is a small village in Unity, South Sudan, which has been amongst the areas worst affected by conflict since the civil war broke out in December 2013.</p>
-              <p>Jacky, 35, just lost her husband during an attack by military forces. For Jacky and her three children, it was too dangerous to stay in the area. They left everything behind and fled north to Bentiu.</p>
-              <p>Bentiu protection of civilian (PoC) site was established in December 2013, right after the crisis. Since then, Bentiu PoC site has witnessed population flows in and out of its gates. Much of the movement is circular, and exits do not necessarily mean permanent relocations to a third area.</p>
-              <p>Jacky and her family walked for days to arrive at Bentiu, a distance of about 120 kilometers. After declaration and signing of permanent ceasefire by parties to the conflict, she thought things would get better at home and took her family back.</p>
-              <img src='assets/graphic_Bentiu_Seg1.png' width='573'/>
+        <div class='main'>
+          <section class='step step1' id='padeah'>
+            <h4><div class='icon'></div>Fleeing Padeah village</h4>
+            <p>Angelina is 35 years old and has three children. She is from Padeah, a small village in the northern region of Unity State. This area is one of the worst-affected by conflict since civil war broke out in December 2013 between the Government and opposition forces.</p>
+            <p>Warring parties have deliberately attacked civilians living in the area, killing thousands of people and sexually assaulting women and girls. Angelina’s husband was killed in the fighting. Attackers set houses on fire in Padeah and destroyed crops and mango trees to eliminate all food sources. Many of Angelina’s friends were raped and live in constant fear.</p>
+            <p>Angelina decides to leave Padeah in July 2017. She and her children walk 120 kilometers to a camp in the north. The journey takes about one week and is filled with danger. Abductions are common, and rape is pervasive everywhere in the country. The family has to avoid stepping on unexploded ordinance, and face the risk of being abducted or raped.</p>
+            <div class='slideshow'>
+              <img src='assets/section1/1.jpg'>
+              <img src='assets/section1/2.jpg'>
+              <img src='assets/section1/3.jpg'>
+              <img src='assets/section1/4.jpg'>
+              <img src='assets/section1/5.jpg'>
+              <img src='assets/section1/6.jpg'>
             </div>
+          </section>
 
-            <div class='segment segment2'>
-              <h4><div class='icon'></div>The second displacement</h4>
-              <p>However, fighting between the military forces didn’t stop in war-torn Unity. Clashes erupted and the conflict continued among several rounds of peace negotiations. This time, the family fled into swamps, hiding in the bushes of Meer Island swamp.</p>
-              <p>In the swamps, people survived by eating the bulbs of wild water lilies and catching fish. Some people have managed to grow food in small gardens despite the violence. After hiding in the swamp for weeks, the family moved to a temporary protection area in Leer town.</p>
-              <img src="http://via.placeholder.com/645x362">
+          <section class='step step2' id='bentiu'>
+            <h4><div class='icon'></div>Entering and leaving the Bentiu Protection of Civilians site</h4>
+            <p>The family arrives in Bentiu, the location of the UN Protection of Civilians site, but Angelina realizes they are still not safe. Women there tell her that many of them have been raped when leaving the camp to collect firewood, and some of them have been abducted just outside the gates. Sometimes families are requested to provide ransoms to kidnappers to get their daughters back. There are also reports of women being held captive and used as sex slaves.</p>
+            <p>Angelina and her children stay in the camp for several months but there is no chance of settling in the nearby village. After the signing of a ceasefire between the Government and opposition forces in December 2017, Angelina thinks that the situation will improve, and she heads back home.</p>
+            <img src='assets/graphic_Bentiu_Seg1.png'>
+            <div class='slideshow'>
+              <img src='assets/section2/1.jpg'>
+              <img src='assets/section2/2.jpg'>
+              <img src='assets/section2/3.jpg'>
             </div>
+          </section>
 
-            <div class='segment segment3'>
-              <h4><div class='icon'></div>Got assistance and arrived at Shambe</h4>
-              <p>The family decided to move south. They walked to Adok port in Leer County, and got on a boat. It took them 10 hours to sail up the White Nile River, and another 100 km journey to Thair port in Panyijiar County. There, they rested and recovered for two to three days, were provided with food by host communities before they headed south to Shambe.</p>
-              <p>The family was really lucky to get supplies when food insecurity has caused crisis all over South Sudan. An estimated 5.3 million people, 48 percent of the population, are currently facing acute food insecurity, despite the harvest and continued large-scale assistance.</p>
-              <img src="http://via.placeholder.com/573x294">
-            </div>
+          <section class='step step3' id='meerisland'>
+            <h4><div class='icon'></div>From Padeah to Meer Island swamp</h4>
+            <p>When Angelina gets back to Padeah, the fighting has not stopped. Violent clashes have erupted and continue through several rounds of peace negotiations. This time, Angelina and her children head south to Meer Island swamp. Over 40,000 people in total flee to hide in this area.</p>
+            <p>This second displacement is even more difficult than the first. The family has exhausted its coping mechanisms. The children have not been attending school for months. There is almost no food left – they survive by eating bulbs of wild water lilies and catching fish. On 21 February 2017, famine was declared in Leer and Mayendit counties in Central Unity State. Access to safe water remains a major challenge, with many people gathering water directly from the swamps without the means to purify it. Many people get sick. And many children – particularly boys – are forcibly recruited by the various military groups. Across the country, families start to resort to negative coping mechanism such as forcibly marrying off their daughters, to survive.</p>
+            <p>After hiding in the swamp for weeks, the family moves to a temporary protection area set up by the UN in Leer town.</p>
+            <img src="http://via.placeholder.com/573x294">
+          </section>
 
-            <div class='segment segment4'>
-              <h4><div class='icon'></div>12 hours on the White Nile to Bor town</h4>
-              <p>The family stayed in Shambe for four to five days, recovering and waiting for the next boat to Bor town. It was another 12-hour journey on the White Nile. After they travelled 200 kilometers by boat, humanitarians at Bor helped the children get vaccinated and provided the family with medical care.</p>
-              <img src="http://via.placeholder.com/645x431">
+          <section class='step step4' id='whitenile'>
+            <h4><div class='icon'></div>A journey up the White Nile River</h4>
+            <p>Due to the dire conditions in Leer county, the family decides to move south towards the capital, Juba. They have heard that there is a camp there where they can receive humanitarian assistance.</p>
+            <p>They walk to Adok Port and take a boat ride 100 kilometers to Thair Port in Panyijiar County. Angelina has family members there who share their shelter and limited food supplies with her and her children for a couple of days. Angelina then takes her family further south on a boat to reach the town of Shambe.</p>
+            <p>Angelina and her children are exhausted by the trip but have received just enough food from their relatives to be able to keep going. Even in this situation, they are considered lucky. Almost half of the country’s population is now facing acute hunger, despite a large-scale humanitarian assistance operation. Food production is sharply down because farmers have been driven off their land, or their crops have been looted or burned.</p>
+            <div class='slideshow'>
+              <img src='assets/section4/1.jpg'>
+              <img src='assets/section4/2.jpg'>
+              <img src='assets/section4/3.jpg'>
+              <img src='assets/section4/4.jpg'>
+              <img src='assets/section4/5.jpg'>
             </div>
+          </section>
 
-            <div class='segment segment5'>
-              <h4><div class='icon'></div>Temporary settlement at Juba PoC site</h4>
-              <p>Their journey to Juba had several stops, including Gemmaiza and Terekeka in Terekeka County, Mongalla and Gondokoro in Juba County.</p> <p>After they got off the boat at Juba port, the family walked 10 km to Juba PoC site. They also received food and medical care from humanitarians. For the first time, they were able to engage in income generating activities, such as selling firewood and grass.</p>
-              <p>As of July 19, 2018, the Juba PoC site hosts more than 39,000 people.</p>
-              <img src='assets/graphic_Juba_Seg5.png' width='600' />
-              <p>If you think their journey ended in safety, it is not necessarily the case. A lot of IDPs choose to cross border and stay in Uganda’s refugee camps. The movement is mostly circular as people constantly  leave to seek livelihood opportunities.</p>
-              <p>Currently, over half the population of South Sudan relies on aid to survive, with 1.76 million people being internally displaced. <b>Violence has forced one in every three people from their homes.</b></p>
-              <p>Internationally backed efforts to implement a 2015-brokered peace deal have failed repeatedly, despite multiple rounds of talks, agreements and ceasefires. Warring parties lack the political will to end the war.</p>
+          <section class='step step5' id='shambe'>
+            <h4><div class='icon'></div>Waiting for a free boat ride from Shambe to Bor</h4>
+            <p>In Shambe, Angelina and her children receive food thanks to residents who share their limited resources. They stay in the town for several days, waiting for a free boat ride to bring them to Bor town. The journey lasts 12 hours and is extremely hazardous. Angelina has heard stories of people who have drowned, and of pirates who force travelers to hand over cash and tie people up and throw them overboard when they are unable to pay.</p>
+            <p>But the fear does not stop there. Angelina is worried that her children will fall sick. Deadly cholera is reported to be widespread along the river belt, including in Juba. Fortunately, when she reaches Bor, humanitarian organizations help vaccinate the children against cholera and provide them with basic medical care.</p>
+            <div class='slideshow'>
+              <img src='assets/section5/1.jpg'>
+              <img src='assets/section5/2.jpg'>
+              <img src='assets/section5/3.jpg'>
+              <img src='assets/section5/4.jpg'>
+              <img src='assets/section5/5.jpg'>
+              <img src='assets/section5/6.jpg'>
             </div>
-          </div>
-          <div id='map'></div>
+          </section>
+
+          <section class='step step6' id='juba'>
+            <h4><div class='icon'></div>Temporary settlement in Juba</h4>
+            <p>The family resumes its journey by boat to the camp in Juba. From Bor, they stop in Gemmaiza, Terekeka, Mongalla and Gondokoro. When they finally reach Juba Port, they are told that the camp they are looking for is another 10 kilometers away. The family walks several hours in the heat and Angelina and her children are harassed and threatened as they pass through security check-points.</p>
+            <p>After a 1,000 kilometer journey, Angelina and her children are finally able to receive food and medical care from humanitarian workers. Although they face many of the same security threats as they saw in the Bentiu camp, for the first time since she left her village, Angelina can earn a little money to support her family, by selling firewood and dried grass.</p>
+            <img src='assets/graphic_Juba_Seg5.png'>
+            <div class='slideshow'>
+              <img src='assets/section6/1.jpg'>
+              <img src='assets/section6/2.jpg'>
+              <img src='assets/section6/3.jpg'>
+              <img src='assets/section6/4.jpg'>
+            </div>
+          </section>
+
+          <section id='footer'>
+            <footer>
+              <p>As of November 2018, over half the population of South Sudan relies on aid to survive. Some 8.7 million people are food-insecure, half  of them severely, and 26,000 people live in famine-like conditions. Some 1.97 million people are internally displaced, and 2.2 million South Sudanese are refugees in neighbouring countries.</p>
+              <p><b>You can help. Your voice is your signature.</b>
+              <p><a href='http://www.crowd360.org/internal-displacement-campaign-mission-statement' target='_blank'>Sign here</a> and call for action help to prevent and resolve internal displacement and protect those affected.</p>
+              <p>Find out more: <a href='http://www.gp20.org' target='_blank'>www.gp20.org</a></p>
+              <p><b><i>Total distance: 916 km<br>
+              Walking steps: 499,229 steps<br>
+              Duration: 205 days</i></b>
+              </p>
+              <p class='small'>Acknowledgements: This data story was developed by OCHA’s Centre for Humanitarian Data in The Hague through its Data Fellows Programme. The Centre worked closely with OCHA South Sudan and OCHA’s policy and communications branches to develop the narrative and to ensure the figures and timeline are accurate. It also worked closely with the International Organization for Migration and the Internal Displacement Monitoring Centre on the data. The story is based on actual experiences of displaced people in South Sudan, although the name Angelina is fictional.</p>
+            </footer>
+          </section>
         </div>
+        
       </div>
     </div>
 
-    <div class='row footer'>
-      <div class='col-md-offset-1 col-md-10'>
-      <hr/>
-        <div class='row'>
-          <div class='col-md-6'>
-            <h3 class='no-border'>Get Involved</h3>
-            <p>More information about Internally Displaced Persons:<br><br>
-            IDMC global database; IOM DTM; UNMISS.</p>
-
-            <h3 class='no-border'>Did this story appeal to you? (It helps us to know)</h3>
-          </div>
-
-          <div class='col-md-6 logo-container end-xs'>
-            <img class='logo' src="http://via.placeholder.com/200x200">
-            <img class='logo' src="http://via.placeholder.com/200x200">
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-    <script src='js/jquery-3.3.1.min.js'></script>
-    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.47.0/mapbox-gl.js'></script>
-    <script src='js/map.js' type='text/javascript'></script>
+    <script type='text/javascript' src='js/jquery-3.3.1.min.js'></script>
+    <script type='text/javascript' src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.47.0/mapbox-gl.js'></script>
+    <script type='text/javascript' src='https://api.mapbox.com/mapbox.js/plugins/turf/v2.0.2/turf.min.js'></script>
+    <script type="text/javascript" src='lib/slick/slick.min.js'></script>
+    <script type='text/javascript' src='js/map.js'></script>
   </body>
 </html>

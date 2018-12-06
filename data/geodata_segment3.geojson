@@ -4,8 +4,9 @@
       {
          "type":"Feature",
          "properties":{
-            "name":"Leer town-Adok port",
-            "transport":"foot"
+            "name":"meerisland",
+            "transport":"foot", 
+            "ticker":"182,300 steps walked. 120 km. 157 days."
          },
          "geometry":{
             "type":"LineString",

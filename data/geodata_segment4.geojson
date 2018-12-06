@@ -5,7 +5,8 @@
          "type":"Feature",
          "properties":{
             "transport":"boat",
-            "name":"Shambe-Bor"
+            "name":"whitenile",
+            "ticker":"81,183 steps walked. 53.27 km. 22 days."
          },
          "geometry":{
             "type":"LineString",
