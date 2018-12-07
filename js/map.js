@@ -75,13 +75,18 @@ $( document ).ready(function() {
 
     //fit map to bounds of current section
     if (geoDataArray[currentIndex]!==undefined) {
-      let bbox = turf.extent(geoDataArray[currentIndex]);
-      let bearing = (i===0)? -180 : -21;
-      let options = isMobile? 'padding: {top: 40, bottom: 40, left: 0, right: 0}' : 'offset: [200,0], padding: {top: 110, bottom: 65, left: 0, right: 0}';
-      if (isMobile)
-        map.fitBounds(bbox, {padding: {top: 40, bottom: 40, left: 0, right: 0}, bearing: bearing});
-      else
-        map.fitBounds(bbox, {offset: [200,0], padding: {top: 110, bottom: 65, left: 0, right: 0}, bearing: bearing});
+      let bearing = -21;
+      switch(currentIndex) {
+        case 0:
+          bearing = -180;
+          break;
+        case 5:
+          bearing = 30;
+          break;
+        default:
+          bearing = -21;
+      }
+      setMapBounds(geoDataArray[currentIndex], bearing);
     }
     
     // highlight the current section
@@ -89,6 +94,15 @@ $( document ).ready(function() {
       sections[i].className = sections[i].id === newSection ? 'active' : '';
     }
     currentSection = newSection;
+  }
+
+
+  function setMapBounds(points, bearing) {
+    let bbox = turf.extent(points);
+    if (isMobile)
+      map.fitBounds(bbox, {padding: {top: 40, bottom: 40, left: 0, right: 0}, bearing: bearing});
+    else
+      map.fitBounds(bbox, {offset: [200,0], padding: {top: 100, bottom: 80, left: 0, right: 0}, bearing: bearing});
   }
 
 
@@ -186,12 +200,7 @@ $( document ).ready(function() {
 
     loadData('geodata_locations.geojson', function (responseText) {
       //fit to bounds of featured locations
-      let bbox = turf.extent(JSON.parse(responseText));
-      let options = isMobile? 'padding: {top: 40, bottom: 40, left: 0, right: 0}' : 'offset: [200,0], padding: {top: 110, bottom: 65, left: 0, right: 0}';
-      if (isMobile)
-        map.fitBounds(bbox, {padding: {top: 40, bottom: 40, left: 0, right: 0}, bearing: -180});
-      else
-        map.fitBounds(bbox, {offset: [200,0], padding: {top: 110, bottom: 65, left: 0, right: 0}, bearing: -180});
+      setMapBounds(JSON.parse(responseText), -180);
     });
   }
 
