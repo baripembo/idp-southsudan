@@ -39,11 +39,11 @@ body {
 	transform: translate(-50%, -50%);
   width: 100%;
 }
-.hero .inner-container {
+.inner-container {
 	display: flex;
 	flex-flow: row;
 }
-.hero .inner-container > div {
+.inner-container > div {
 	margin: 0 20px;
 }
 .hero .header {
@@ -83,6 +83,7 @@ body {
 	font-weight: bold;
 	line-height: 50px;
 	margin: 0;
+	padding: 0;
 }
 
 hr {
@@ -128,12 +129,6 @@ hr.black {
 	width: 50%;
 }
 
-.main section#footer {
-	background-color: #FFF;
-	padding: 0;
-	width: 100%;
-}
-
 .main section img {
 	width: 100%;
 }
@@ -163,6 +158,9 @@ section.active .icon {
 .slideshow .slick-dots {
 	bottom: -15px;
 }
+.slideshow .slick-dots li {
+	margin: 0;
+}
 .slideshow .slick-dots li button:before {
 	font-size: 10px;
 }
@@ -170,10 +168,54 @@ section.active .icon {
 	color: black;
 }
 
+
+.main section#footer {
+	background-color: #353535;
+	padding: 0;
+	width: 100%;
+}
 footer {
-	background-color: #FFF;
 	border-top: 1px solid #CCC;
-	padding: 20px;
+	color: #FFF;
+	margin: 0 auto;
+	max-width: 1024px;
+	padding: 20px 0;
+}
+footer .inner-container > *:first-child {
+	width: 60%;
+}
+.stats {
+  list-style-type: none;
+	padding: 0;
+	margin-right: 20px;
+	text-align: right;
+	width: 40%;
+}
+.stats li {
+	padding-bottom: 20px;
+}
+.stats span {
+	font-size: 30px;
+	font-weight: bold;
+}
+.main section .logos img {
+	margin-bottom: 0;
+	width: auto;
+}
+.logos {
+	background-color: #252525;
+	padding: 18px 20px 9px;
+}
+.logos div {
+	display: flex;
+	flex-flow: row;
+	margin: 0 auto;
+	max-width: 1024px;
+	padding-right: 20px;
+}
+.logos div > *:first-child {
+	margin-left: auto;
+	margin-right: 40px;
 }
 
 
@@ -198,9 +240,18 @@ h4 {
 	line-height: 18px;
 	margin-top: 4px;
 }
+p {
+	margin: 0;
+	padding: 10px 0;
+}
+a {
+	color: #007ce0;
+}
 .small {
+	color: #888;
 	font-size: 11px;
 	line-height: 13px;
+	padding: 0 20px;
 }
 label {
 	color: #FFF;
@@ -225,9 +276,6 @@ img {
   }
   .main section {
   	width: 100%;
-  }
-  .overlay {
-
   }
   .hero {
   	background-position: top center;
@@ -256,8 +304,27 @@ img {
   .slideshow {
   	margin-left: 0;
   }
+  .slick-prev:before, .slick-next:before {
+  	display: none;
+  }
   h1 {
   	font-size: 26px;
   	line-height: 30px;
+  }
+  footer .inner-container {
+  	flex-flow: column;
+  }
+  footer .inner-container > *:first-child {
+  	margin: 0;
+  	padding: 0 20px;
+  	width: 100%;
+  }
+  .logos div > *:first-child {
+  	margin-left: 0;
+  }
+  .stats {
+  	padding-left: 20px;
+  	text-align: left;
+  	width: 100%;
   }
 }
