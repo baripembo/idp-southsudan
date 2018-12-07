@@ -28,7 +28,8 @@ body {
   background-size: cover;
   height: 100vh;
   min-height: 590px;
-  overflow-y: auto;
+  overflow-y: scroll; /* has to be scroll, not auto */
+  -webkit-overflow-scrolling: touch;
   position: relative;
 }
 .hero .container {
@@ -102,7 +103,8 @@ hr.black {
   bottom: 0;
   left: 0;
   overflow-x: hidden;
-  overflow-y: auto;
+  overflow-y: scroll; /* has to be scroll, not auto */
+  -webkit-overflow-scrolling: touch;
 }
 
 #map {
