@@ -20,9 +20,12 @@ $( document ).ready(function() {
   narrative.scroll(function(e) {
     let narrativeHeight = narrative.outerHeight();
     let newSection = currentSection;
+    let sectionsHeight = $('#sections').height();
+    let footerPosition = sectionsHeight-$('footer').outerHeight()-$('.logos').outerHeight()-narrative.outerHeight();
 
+    console.log(narrative.scrollTop(), footerPosition)
     //show ticker
-    if (narrative.scrollTop() >= $('.hero').outerHeight()) {
+    if (narrative.scrollTop() >= $('.hero').outerHeight() && narrative.scrollTop() < footerPosition) {
       $('.ticker').addClass('active');
     }
     else {
