@@ -70,7 +70,7 @@ $( document ).ready(function() {
     let layer = newSection+'Layer';
     if (map.getLayer(layer)) {
       map.setPaintProperty(layer, 'icon-opacity', 1);
-      if (i===0) {
+      if (currentIndex===0) {
         map.setLayoutProperty(layer, 'icon-rotate', ['get', 'bearing']);
         map.setLayoutProperty(layer, 'icon-rotation-alignment', 'map');
       }
@@ -163,7 +163,7 @@ $( document ).ready(function() {
     map.scrollZoom.disable();
 
     //add icon images
-    let iconArray = ['icon_circle','icon_foot','icon_boat','icon_clash'];
+    let iconArray = ['icon_circle','icon_foot','icon_foot_up','icon_boat','icon_clash'];
     iconArray.forEach(function(imageName) {
       map.loadImage(DATA_URL+'assets/icons/'+imageName+'.png', function(error, image) {
         map.addImage(imageName, image);
