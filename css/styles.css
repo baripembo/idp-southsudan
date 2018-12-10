@@ -182,6 +182,14 @@ section.active .icon {
 .slick-prev:before, .slick-next:before {
 	color: black;
 }
+.slideshow .slick-slide img {
+	margin-bottom: 5px;
+}
+.slideshow .slide-caption {
+	color: #777;
+	font-size: 11px;
+	font-style: italic;
+}
 
 
 
