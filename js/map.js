@@ -3,6 +3,14 @@ $( document ).ready(function() {
     dots: true
   });
 
+  $('.slideshow .slick-slide > img').each(function(){ 
+    if ($(this).attr('title')){
+      var slideCaption = $(this).attr('title');
+      $(this).parent('.slick-slide').append('<div class="slide-caption">' + slideCaption + '</div>');
+    }
+  });
+
+
   const DATA_URL = 'https://baripembo.github.io/idp-southsudan/';//'http://0.0.0.0:8000/';
   mapboxgl.accessToken = 'pk.eyJ1IjoiaHN3OTgiLCJhIjoiY2oyOXh2dzlxMDAwYzJ3bzcyMnRseXcxNCJ9.1h5sGCIL0Pig6OmgZdDBMg';
 
