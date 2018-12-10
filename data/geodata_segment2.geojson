@@ -5,7 +5,8 @@
          "type":"Feature",
          "properties":{
             "transport":"foot",
-            "name":"Padeah-Meer Island swamp"
+            "name":"bentiu",
+            "ticker":"182,300 steps walked. 120 km. 7 days."
          },
          "geometry":{
             "type":"LineString",
