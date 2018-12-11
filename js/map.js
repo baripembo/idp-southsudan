@@ -1,6 +1,7 @@
 $( document ).ready(function() {
   $('.slideshow').slick({
-    dots: true
+    dots: true,
+    lazyLoad: 'progressive',
   });
 
   $('.slideshow .slick-slide > img').each(function(){ 
@@ -91,7 +92,7 @@ $( document ).ready(function() {
           bearing = -180;
           break;
         case 5:
-          bearing = 30;
+          bearing = -21;
           break;
         default:
           bearing = -21;
@@ -119,6 +120,7 @@ $( document ).ready(function() {
   function getData() {
     dataUrls.forEach(function (url, index) {
       loadData(url, function (responseText) {
+        console.log(url)
         parseData(JSON.parse(responseText), index);
       })
     })
@@ -222,6 +224,7 @@ $( document ).ready(function() {
       let points = convertLineStringtoPoint(feature.geometry.coordinates, feature.properties.transport);
       let name = feature.properties.name.replace(/ /g, '').toLowerCase()
       let source = name+'Layer';
+      console.log(source, index)
       map.addSource(source, {
         type: 'geojson',
         data: {

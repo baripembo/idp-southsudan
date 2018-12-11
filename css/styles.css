@@ -266,6 +266,10 @@ p {
 }
 a {
 	color: #007ce0;
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
 }
 .small {
 	color: #888;
