@@ -11,8 +11,7 @@ $( document ).ready(function() {
     }
   });
 
-
-  const DATA_URL = '';//'https://baripembo.github.io/idp-southsudan/';
+  const DATA_URL = 'https://baripembo.github.io/idp-southsudan/';
   mapboxgl.accessToken = 'pk.eyJ1IjoiaHN3OTgiLCJhIjoiY2oyOXh2dzlxMDAwYzJ3bzcyMnRseXcxNCJ9.1h5sGCIL0Pig6OmgZdDBMg';
 
   let isMobile = $(window).width()<600? true : false;
@@ -206,8 +205,7 @@ $( document ).ready(function() {
 
     loadData('geodata_locations.geojson', function (responseText) {
       //fit to bounds of featured locations
-      //setMapBounds(JSON.parse(responseText), -180);
-      setMapBounds(geoDataArray[0], -21);
+      setMapBounds(JSON.parse(responseText), -180);
     });
   }
 
@@ -242,6 +240,9 @@ $( document ).ready(function() {
         }
       });
     });
+
+    // if (index===0)
+    //   setMapBounds(geoDataArray[index], -21);
   }
 
   initMap();
