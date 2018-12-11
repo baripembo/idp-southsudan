@@ -12,11 +12,11 @@ $( document ).ready(function() {
   });
 
 
-  const DATA_URL = 'https://baripembo.github.io/idp-southsudan/';//'http://0.0.0.0:8000/';
+  const DATA_URL = '';//'https://baripembo.github.io/idp-southsudan/';
   mapboxgl.accessToken = 'pk.eyJ1IjoiaHN3OTgiLCJhIjoiY2oyOXh2dzlxMDAwYzJ3bzcyMnRseXcxNCJ9.1h5sGCIL0Pig6OmgZdDBMg';
 
   let isMobile = $(window).width()<600? true : false;
-  let dataUrls = ['geodata_segment1.geojson','geodata_segment2.geojson','geodata_segment3.geojson','geodata_segment4.geojson','geodata_segment5.geojson','geodata_segment6.geojson'];
+  let dataUrls = ['geodata_segment1.geojson','geodata_segment2.geojson','geodata_segment3.geojson','geodata_segment4.geojson','geodata_segment5.geojson'];
   let geoDataArray = new Array(dataUrls.length);
   let tickerArray = new Array(dataUrls.length);
   let map;
@@ -91,8 +91,8 @@ $( document ).ready(function() {
         case 0:
           bearing = -180;
           break;
-        case 5:
-          bearing = -21;
+        case 4:
+          bearing = 10;
           break;
         default:
           bearing = -21;
@@ -120,7 +120,6 @@ $( document ).ready(function() {
   function getData() {
     dataUrls.forEach(function (url, index) {
       loadData(url, function (responseText) {
-        console.log(url)
         parseData(JSON.parse(responseText), index);
       })
     })
@@ -156,17 +155,12 @@ $( document ).ready(function() {
   function initMap() {
     map = new mapboxgl.Map({
       container: 'map',
-      style: 'mapbox://styles/hsw98/cjjq2awnt06n12soa9ki5nlsl',//'mapbox://styles/mapbox/satellite-v9'
+      style: 'mapbox://styles/hsw98/cjjq2awnt06n12soa9ki5nlsl',
       center: [29.5, 8.0],
       maxZoom: 17,
       zoom: 8.2,
-      bearing: -180,
-      //interactive: false,
-      //attributionControl: false
+      bearing: -180
     });
-
-    //add map zoom control
-    //map.addControl(new mapboxgl.NavigationControl());
 
     //disable scrolling map zoom
     map.scrollZoom.disable();
@@ -212,7 +206,8 @@ $( document ).ready(function() {
 
     loadData('geodata_locations.geojson', function (responseText) {
       //fit to bounds of featured locations
-      setMapBounds(JSON.parse(responseText), -180);
+      //setMapBounds(JSON.parse(responseText), -180);
+      setMapBounds(geoDataArray[0], -21);
     });
   }
 
@@ -224,7 +219,6 @@ $( document ).ready(function() {
       let points = convertLineStringtoPoint(feature.geometry.coordinates, feature.properties.transport);
       let name = feature.properties.name.replace(/ /g, '').toLowerCase()
       let source = name+'Layer';
-      console.log(source, index)
       map.addSource(source, {
         type: 'geojson',
         data: {
@@ -238,7 +232,7 @@ $( document ).ready(function() {
         'source': source,
         'layout': {
           'icon-image': 'icon_{transport}',
-          'icon-padding': 6
+          'icon-padding': 4,
         },
         'paint': {
           'icon-opacity': 0,
