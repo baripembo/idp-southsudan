@@ -39,7 +39,7 @@ body {
   background-size: cover;
   height: 100vh;
   min-height: 590px;
-  overflow-y: scroll; /* has to be scroll, not auto */
+  overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
   position: relative;
 }
@@ -116,7 +116,7 @@ hr.black {
   bottom: 0;
   left: 0;
   overflow-x: hidden;
-  overflow-y: scroll; /* has to be scroll, not auto */
+  overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
 }
 
@@ -134,7 +134,6 @@ hr.black {
 }
 
 .main {
-  grid-area: main;
   padding-top: 30px;
 }
 
@@ -185,12 +184,19 @@ section.active .icon {
 .slideshow .slick-slide img {
 	margin-bottom: 5px;
 }
-.slideshow .slide-caption {
+.slideshow .slide-caption,
+.photo-credit {
 	color: #777;
 	font-size: 11px;
 	font-style: italic;
 }
-
+.photo-credit {
+  bottom: 0;
+	color: #FFF;
+  font-size: 11px;
+  left: 20px;
+	position: absolute;
+}
 
 
 footer {
@@ -257,7 +263,7 @@ h3 {
 }
 h4 {
 	font-size: 15px;
-	line-height: 18px;
+	line-height: 20px;
 	margin-top: 4px;
 }
 p {
@@ -291,12 +297,12 @@ img {
 @media only screen and (max-width: 600px) {
   #map {
   	top: auto;
-  	height: 50vh;
+  	height: 50%;
   }
   #narrative {
   	border-bottom: 1px solid #CCC;
   	bottom: auto;
-  	height: 50vh;
+  	height: 50%;
   }
   .main section {
 		background-color: rgba(255, 255, 255, 1);
@@ -305,15 +311,26 @@ img {
   .arrow {
   	display: none;
   }
+  .photo-credit {
+  	left: 0;
+  	position: relative;
+  }
+  .overlay {
+  	height: 100%;
+  	min-height: 0;
+  }
   .hero {
   	background-position: top center;
-  	background-size: auto 333px;
+  	background-attachment: scroll;
   	height: auto;
   	min-height: 0;
+  	overflow-y: none;
+  	-webkit-overflow-scrolling: none;
   }
   .hero .container {
   	position: relative;
-  	top: 20px;
+  	padding-top: 20px;
+  	top: 0;
   	left: 0;
   	transform: none;
   }
@@ -331,6 +348,12 @@ img {
 	}
   .slideshow {
   	margin-left: 0;
+  }
+  .slideshow .slick-slide img {
+  	margin-bottom: 0;
+  }
+  .slideshow .slick-dots {
+  	bottom: -25px;
   }
   .slick-prev:before, .slick-next:before {
   	display: none;

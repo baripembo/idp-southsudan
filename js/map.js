@@ -11,11 +11,11 @@ $( document ).ready(function() {
     }
   });
 
-  const DATA_URL = 'https://baripembo.github.io/idp-southsudan/';
+  const DATA_URL = '';//https://baripembo.github.io/idp-southsudan/';
   mapboxgl.accessToken = 'pk.eyJ1IjoiaHN3OTgiLCJhIjoiY2oyOXh2dzlxMDAwYzJ3bzcyMnRseXcxNCJ9.1h5sGCIL0Pig6OmgZdDBMg';
 
   let isMobile = $(window).width()<600? true : false;
-  let dataUrls = ['geodata_segment1.geojson','geodata_segment2.geojson','geodata_segment3.geojson','geodata_segment4.geojson','geodata_segment5.geojson'];
+  let dataUrls = ['seg1.geojson','seg2.geojson','seg3.geojson','seg4.geojson','seg5.geojson','seg6.geojson'];
   let geoDataArray = new Array(dataUrls.length);
   let tickerArray = new Array(dataUrls.length);
   let map;
@@ -90,7 +90,7 @@ $( document ).ready(function() {
         case 0:
           bearing = -180;
           break;
-        case 4:
+        case 5:
           bearing = 10;
           break;
         default:
@@ -143,7 +143,7 @@ $( document ).ready(function() {
         },
         'geometry': {
           'type': 'Point',
-          'coordinates':coordinate
+          'coordinates': coordinate
         }
       })
     });
@@ -233,16 +233,13 @@ $( document ).ready(function() {
           'icon-padding': 4,
         },
         'paint': {
-          'icon-opacity': 0,
-          'icon-opacity-transition': {
-            'duration': 1000
-          }
+          'icon-opacity': 1,
+          // 'icon-opacity-transition': {
+          //   'duration': 1000
+          // }
         }
       });
     });
-
-    // if (index===0)
-    //   setMapBounds(geoDataArray[index], -21);
   }
 
   initMap();
